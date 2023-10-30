@@ -19,8 +19,10 @@ int main(int argc, char* argv[]) {
   }
   double sum{0.0};
 
-  for (int i = 1; i < arguments.size(); ++i) {
-    sum += std::stod(arguments.at(i));
+  for (const auto& arg : arguments) {
+    if (arg != arguments[0]) {
+      sum += std::stod(arg);
+    }
   }
 
   double average{sum / (--argc)};
